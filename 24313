@@ -1,0 +1,19 @@
+#include <iostream>
+#include <algorithm>
+
+int main() {
+	int a1, a0, c, n0;
+	bool isAccepted = false;
+
+	std::cin >> a1 >> a0;
+	std::cin >> c;
+	std::cin >> n0;
+
+	int f = a1 * n0 + a0;
+	int g = c * n0;
+	if (f <= g && a1 <= c) {
+		isAccepted = true;
+	}
+
+	std::cout << isAccepted;
+}
