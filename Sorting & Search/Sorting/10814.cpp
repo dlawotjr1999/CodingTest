@@ -1,6 +1,9 @@
 #include <iostream>
 #include <map>
-#include <set>
+
+// multimap 사용 문제
+// multimap은 key에 따라 정렬이 되어 데이터가 저장됨
+// 참고 : key 대신 value로 정렬하기(https://unluckyjung.github.io/cpp/2020/05/07/Sort_map_by_value/)
 
 int main() {
     std::ios::sync_with_stdio(0);

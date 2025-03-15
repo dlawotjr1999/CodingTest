@@ -2,6 +2,8 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 #pragma warning(disable : 4996)
 
+// merge sort를 이해하는 문제
+
 int N, K, cnt;
 int result = -1;
 int* A;
@@ -43,8 +45,8 @@ void merge_sort(int* A, int p, int r) {
 int main() {
 
 	std::cin >> N >> K;
-	A = new int[N + 1];
-	tmp = new int[N + 1];
+	A = new int[N];
+	tmp = new int[N];
 
 	for (int i = 0; i < N; i++) {
 		scanf("%d", &A[i]);
@@ -55,5 +57,3 @@ int main() {
 	delete[] A;
 	delete[] tmp;
 }
-
-//외부 코드 참고

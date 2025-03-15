@@ -1,7 +1,8 @@
 #include <iostream>
-#include <algorithm>
 
-// Math
+// 한수 구하기
+// 한수란? : 어떤 양의 정수 X의 각 자릿수가 등차수열을 이루는 수
+
 int main() {
 	int N;
 	int cnt = 99;

@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cmath>
 
-// Math
+// 두 원의 위치 관계를 구현하는 문제
+// 참고 : https://blog.naver.com/honeyeah/110140815554
+
 int main() {
 	int T;
 	std::cin >> T;

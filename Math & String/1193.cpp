@@ -1,6 +1,6 @@
 #include <iostream>
 
-// Math
+// 
 int main() {
 	int line = 1;
 	int x;

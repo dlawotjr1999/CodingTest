@@ -1,6 +1,8 @@
 #include <iostream>
 
-//Gredy
+// 이항정리 구현 문제
+// 결과값이 int 형을 벗어날 수 있으므로 long으로 자료형 설정
+
 int main() {
     int num = 0;
 

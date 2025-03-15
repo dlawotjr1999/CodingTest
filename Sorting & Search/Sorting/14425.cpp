@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+// 단순 이분탐색 문제(자료형이 string일 뿐)
+
 int main() {
     std::ios::sync_with_stdio(0);
     std::cin.tie(0);
