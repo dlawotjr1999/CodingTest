@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+// 단순 수학 계산 문제
+
 int main() {
 	int N, elm;
 	float result = 0;
