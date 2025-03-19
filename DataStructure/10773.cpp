@@ -1,6 +1,9 @@
 #include <iostream>
 #include <stack>
 
+// 스택 활용 문제
+// 입력 숫자가 0이 아니면 push를, 0이면 pop을 하는 방식으로 구현
+
 int main() {
 	int K, elm;
 	int result = 0;
@@ -22,6 +25,12 @@ int main() {
 		result += stack.top();
 		stack.pop();
 	}
+
+	// Better Solution 
+	/* while (!stack.empty()) {
+		result += stack.top();
+		stack.pop();
+	} */
 
 	std::cout << result;
 }

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <map>
-#include <vector>
+#include <vector> 
+
+// 흔히 나오는 map과 vector를 활용하는 문제
+// map에 값들을 입력하고, 두 번째로 입력한 값들이 map에서 몇 번 등장하는지 구현하는 문제
 
 int main() {
     std::ios::sync_with_stdio(0);
@@ -13,9 +16,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         int num;
         std::cin >> num;
-        map.emplace(num, 0);
-
-        if (map.find(num) != map.end()) map[num]++;
+        map[num]++;
     }
 
     std::cin >> M;

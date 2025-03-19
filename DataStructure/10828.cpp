@@ -7,6 +7,8 @@
 
 #pragma warning(disable:4996)
 
+// Stack을 직접 구현하는 문제(C스타일로 해결)
+
 typedef struct {
 	int arr[MAX_SIZE];
 	int top;

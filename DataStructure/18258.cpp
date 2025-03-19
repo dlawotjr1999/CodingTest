@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+// Queue를 직접 구현하는 문제
+// Stack처럼 STL 없이 구현해볼 것!
+
 int main() {
     std::ios::sync_with_stdio(false);
     std::cin.tie(NULL);
