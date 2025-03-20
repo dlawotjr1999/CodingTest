@@ -1,65 +1,85 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
-#include <algorithm>
 
-// map을 활용하여 두 번의 입력에서 중복된 값이 있는지를 검토하는 문제
+class Queue {
+private:
+    std::vector<int> queue; 
+    int front = 0;
+    int rear = 0;
+    int capacity = 2000000;  
+
+public:
+    Queue() {
+        queue.resize(capacity);
+    }
+
+    void Push(int elm) {
+        queue[rear++] = elm;
+    }
+
+    int Pop() {
+        if (Empty()) {
+            return -1;
+        }
+        else {
+            return queue[front++];
+        }
+    }
+
+    int Size() const {
+        return (rear - front);
+    }
+
+    int Empty() const {
+        return (front == rear);
+    }
+
+    int Front() {
+        if (!Empty())
+            return queue[front];
+        else
+            return -1;
+    }
+
+    int Back() {
+        if (!Empty())
+            return queue[rear - 1];  
+        else
+            return -1;
+    }
+};
+
 int main() {
-	int N, M;
-	std::unordered_map<std::string, int> map;
-	std::vector<std::string> vec;
+    int num;
+    std::cin >> num;
 
-	std::cin >> N >> M;
+    Queue queue;
 
-	for (int i = 0; i < N; i++) {
-		std::string n;
-		std::cin >> n;
-		map.emplace(n, 1);
-	}
+    while (num--) {
+        std::string cmd;
+        std::cin >> cmd;
 
-	for (int j = 0; j < M; j++) {
-		std::string m;
-		std::cin >> m;
+        if (cmd == "push") {
+            int elm;
+            std::cin >> elm;
+            queue.Push(elm);
+        }
+        else if (cmd == "pop") {
+            std::cout << queue.Pop() << std::endl;
+        }
+        else if (cmd == "size") {
+            std::cout << queue.Size() << std::endl;
+        }
+        else if (cmd == "empty") {
+            std::cout << queue.Empty() << std::endl;
+        }
+        else if (cmd == "front") {
+            std::cout << queue.Front() << std::endl;
+        }
+        else if (cmd == "back") {
+            std::cout << queue.Back() << std::endl;
+        }
+    }
 
-		if (map.find(m) != map.end())
-			vec.emplace_back(m);
-	}
-
-	std::sort(vec.begin(), vec.end());
-
-	std::cout << vec.size() << std::endl;
-	for (auto& name : vec)
-		std::cout << name << std::endl;
+    return 0;
 }
-
-// 다르게 접근한 소스코드(단순성과 메모리 효율성에서 유리하지만, 퍼포먼스는 좀 더 불리함)
-/* int main() {
-	int N, M;
-	int cnt = 0;
-	std::map<std::string, int> map;
-
-	std::cin >> N >> M;
-
-	for (int i = 0; i < N; i++) {
-		std::string n;
-		std::cin >> n;
-		map[n]++;
-	}
-
-	for (int j = 0; j < M; j++) {
-		std::string m;
-		std::cin >> m;
-
-		if (map.find(m) != map.end()) {
-			cnt++;
-		}
-		map[m]++;
-	}
-
-	std::cout << cnt << std::endl;
-	for (auto& elm : map) {
-		if (elm.second > 1) {
-			std::cout << elm.first << std::endl;
-		}
-	}
-} */
