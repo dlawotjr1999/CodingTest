@@ -22,6 +22,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         result += vec[i] * (N - i);
     }
+
     std::cout << result;
 
     return 0;
