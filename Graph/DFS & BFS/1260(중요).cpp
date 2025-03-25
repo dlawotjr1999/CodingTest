@@ -2,6 +2,9 @@
 #include <vector>
 #include <queue>
 
+// DFS와 BFS를 직접 구현하는 문제
+// 기본 중의 기본이므로 잘 기억해 놓을 것
+
 int N, M, V;
 
 int matrix[1001][1001];

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cstring> 
 
+// 2차원 배추밭에서 서로 인접한 배추 그룹의 개수(=지렁이 수)를 구하는 문제
+// 상하좌우로 연결된 배추들을 하나의 그룹으로 보고, DFS를 활용하여 문제를 해결
+
 int M, N, K;
 int graph[51][51];
 int visited[51][51];
