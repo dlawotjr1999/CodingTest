@@ -2,6 +2,9 @@
 #include <queue>
 #include <cstring>
 
+// 바다(0) 위에 섬(1)이 있을 때 섬의 수를 구하는 문제 
+// 흔히 나오는, 방향과 DFS, BFS를 이용한 탐색 문제(미로 탐색 유형) => 이 문제는 8방향으로 확장됨
+
 int h, w;
 
 int field[51][51];

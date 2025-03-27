@@ -4,6 +4,8 @@
 #define MAX 1001
 #define INF 1e9
 
+// Dijkstra Algorithm 구현 기본 문제
+
 int N, M;
 std::vector<std::pair<int, int>> bus[MAX];
 int start, dest;
@@ -31,7 +33,7 @@ void Dijkstra() {
 				dist[bus[cur][i].first] = cost2;
 
 				// 비용들을 음수로 처리해서 우선순위 큐에 삽입
-				// std::pair로 이루어진 큐이므로 std::greater<int>를 사용할 수 없기 떄문에 음수로 처리
+				// std::greater<std::pair<int, int>>를 이용하면 음수를 이용하지 않아도 됨
 				// 이 때 절댓값이 가장 작은 값. 즉 최소 비용이 큐의 가장 상단에 위치하게 된다
 				pq.emplace(-cost2, bus[cur][i].first);
 			}

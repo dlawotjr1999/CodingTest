@@ -1,5 +1,7 @@
 #include <iostream>
 
+// 그래프의 연결요소의 갯수를 구하는 문제
+
 int N, M;
 int graph[1001][1001];
 bool visited[1001];
@@ -26,6 +28,7 @@ int main() {
 		graph[v][u] = 1;
 	}
 
+	// 독립된 하나의 정점도 하나의 연결 요소이므로 visited(정점의 수)만 확인하면 됨
 	for (int i = 1; i <= N; i++) {
 		if (!visited[i]) {
 			DFS(i);

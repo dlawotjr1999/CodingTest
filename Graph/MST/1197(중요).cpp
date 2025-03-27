@@ -6,8 +6,6 @@
 // MST를 구하는 기본 문제
 // Prim Algorithm 사용
 
-const int INF = std::numeric_limits<int>::max();
-
 int V, E;
 std::vector<std::pair<int, int>> graph[MAX];
 std::vector<bool> visited(MAX, false);

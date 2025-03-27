@@ -2,6 +2,10 @@
 #include <queue>
 #define MAX 101
 
+// 미로를 탈출하는 데 필요한 최소 비용을 구하는 문제
+// 흔히 나오는, 방향과 DFS, BFS를 이용한 경로 탐색 문제
+// 지나온 길의 좌표에 1을 더하면서 최단 경로를 구함
+
 int N, M;
 int maze[MAX][MAX];
 int dist[MAX][MAX];
@@ -27,10 +31,12 @@ void BFS(int x, int y) {
 			int x_new = x_ + x_dir[i];
 			int y_new = y_ + y_dir[i];
 
+			// 1(길)로 이루어진 곳만 갈 수 있음 => 1보다 큰 값을 가진 좌표는 이미 지나온 길이기 때문
 			if ((0 <= x_new && x_new < N) && (0 <= y_new && y_new < M)
 				&& !visited[x_new][y_new] && maze[x_new][y_new] == 1) {
 				visited[x_new][y_new] = true;
 				queue.emplace(x_new, y_new);
+				// 지나온 좌표에 1을 더함으로써 지나왔음을 표시하며, 동시에 최소비용을 구할 수 있도록 함
 				dist[x_new][y_new] = dist[x_][y_] + 1;
 			}
 		}
@@ -40,6 +46,8 @@ void BFS(int x, int y) {
 int main() {
 	std::cin >> N >> M;
 
+	// 입력 주의
+	// 공백없이 입력되는 경우 입력을 string으로 처리함
 	for (int i = 0; i < N; i++) {
 		std::string row;
 		std::cin >> row;

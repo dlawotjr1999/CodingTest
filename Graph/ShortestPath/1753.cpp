@@ -2,6 +2,8 @@
 #include <queue>
 #include <vector>
 
+// Dijkstra Algorithm 구현 기본 문제2
+
 const int MAX = 20000;
 const int INF = 999999;
 
@@ -54,6 +56,7 @@ int main() {
 
 	Dijkstra(start);
 
+	// 시작 지점부터 끝 지점까지 Dijkstra Algorithm으로 경로를 탐색하면 dist에는 각 지점까지의 최단 경로가 저장됨
 	for (int i = 1; i <= V; i++) {
 		if (dist[i] == INF)
 			std::cout << "INF" << '\n';

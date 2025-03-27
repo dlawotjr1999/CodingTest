@@ -3,6 +3,9 @@
 #include <vector>
 #include <algorithm>
 
+// 도화지에 있는 그림(1로 구성)의 갯수와 가장 큰 그림의 면적을 구하는 문제
+// 흔히 나오는, 방향과 DFS, BFS를 이용한 탐색 문제(미로 탐색 유형)
+
 int N, M;
 
 int x_dir[4] = { -1,0,1,0 };
