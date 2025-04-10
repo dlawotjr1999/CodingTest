@@ -3,6 +3,9 @@
 
 using namespace std;
 
+// 0 - 1 배낭문제
+// 해설 : https://nanyoungkim.tistory.com/182
+
 int main() {
 
 	int N, K;
