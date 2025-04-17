@@ -1,6 +1,9 @@
 #include <iostream>
 #define MAX 15
 
+// N-Queen Probelm
+// Âü°í : https://ko.wikipedia.org/wiki/%EC%97%AC%EB%8D%9F_%ED%80%B8_%EB%AC%B8%EC%A0%9C
+
 int N;
 int answer;
 int field[MAX];

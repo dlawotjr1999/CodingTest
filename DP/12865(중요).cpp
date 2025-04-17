@@ -7,7 +7,6 @@ using namespace std;
 // ÇØ¼³ : https://nanyoungkim.tistory.com/182
 
 int main() {
-
 	int N, K;
 	std::vector<std::pair<int, int>> p;
 
