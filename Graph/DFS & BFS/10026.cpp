@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
-#define MAX 100
+#define MAX 100여
+
+// 초록색과 빨간색으로 이루어진 그림이 있을 때, 일반인이 식별할 수 있는 부분의 수와 적록색약이 있는 사람이 식별할 수 있는 부분의 수를 구하는 문제
 
 int N;
 int cnt1;

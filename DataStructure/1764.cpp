@@ -1,34 +1,52 @@
 #include <iostream>
-#include <map>
-#include <algorithm>
+#include <vector>
+#include <cmath>
+#define MAX 500
+
+std::vector<int> vec;
 
 int main() {
-	int N, M;
-	int cnt = 0;
-	std::map<std::string, int> map;
+	int N, K;
+	std::cin >> N >> K;
+	std::cout << "N = " << N << ", K = " << K << '\n';
 
-	std::cin >> N >> M;
+	std::vector<int> vec(N);
 
 	for (int i = 0; i < N; i++) {
-		std::string n;
-		std::cin >> n;
-		map[n]++;
+		std::cin >> vec[i];
+		std::cout << "vec[" << i << "] = " << vec[i] << '\n';
 	}
 
-	for (int j = 0; j < M; j++) {
-		std::string m;
-		std::cin >> m;
+	int difference_sum = MAX;
+	int min_index = -1;
 
-		if (map.find(m) != map.end()) {
-			cnt++;
+	for (int i = 0; i <= vec.size() - K; i++) {
+		int temp = 0;
+
+		for (int j = i; j < (i + K - 1); j++) {
+			temp += std::abs(vec[j] - vec[j + 1]);
 		}
-		map[m]++;
-	}
-
-	std::cout << cnt << std::endl;
-	for (auto& elm : map) {
-		if (elm.second > 1) {
-			std::cout << elm.first << std::endl;
+		if (temp < difference_sum) {
+			difference_sum = temp;
+			min_index = i;
 		}
 	}
+
+	int sum = 0;
+
+	for (int i = min_index; i < (min_index + K - 1); i++) {
+		sum += vec[i];
+	}
+	double avg = static_cast<double>(sum) / K;
+
+	double variance = 0;
+	for (int i = min_index; i < min_index + K; i++) {
+		variance += (vec[i] - avg) * (vec[i] - avg);
+	}
+	variance /= K;
+
+	std::cout.precision(10);
+	std::cout << std::sqrt(variance);
+
+	return 0;
 }
