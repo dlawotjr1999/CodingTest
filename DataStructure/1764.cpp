@@ -1,52 +1,38 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
-#define MAX 500
+#include <unordered_map>
+#include <algorithm>
 
-std::vector<int> vec;
+// 들어보지 못한 사람들과 보지 못한 사람들이 주어질 때, 듣도 보지 못한 사람을 구하는 문제
 
 int main() {
-	int N, K;
-	std::cin >> N >> K;
-	std::cout << "N = " << N << ", K = " << K << '\n';
+	int N, M;
+	std::unordered_map<std::string, int> map;
+	std::vector<std::string> vec;
 
-	std::vector<int> vec(N);
+	std::cin >> N >> M;
 
+	// 들어보지 못한 사람을 map에 삽입
 	for (int i = 0; i < N; i++) {
-		std::cin >> vec[i];
-		std::cout << "vec[" << i << "] = " << vec[i] << '\n';
+		std::string n;
+		std::cin >> n;
+		map.emplace(n, 1);
 	}
 
-	int difference_sum = MAX;
-	int min_index = -1;
+	// 보지 못한 사람을 입력
+	for (int j = 0; j < M; j++) {
+		std::string m;
+		std::cin >> m;
 
-	for (int i = 0; i <= vec.size() - K; i++) {
-		int temp = 0;
-
-		for (int j = i; j < (i + K - 1); j++) {
-			temp += std::abs(vec[j] - vec[j + 1]);
-		}
-		if (temp < difference_sum) {
-			difference_sum = temp;
-			min_index = i;
-		}
+		// 보지 못한 사람이 map에서 탐색되면 vector에 삽입
+		if (map.find(m) != map.end())
+			vec.emplace_back(m);
 	}
 
-	int sum = 0;
+	// 사전식 배치를 위한 정렬
+	std::sort(vec.begin(), vec.end());
 
-	for (int i = min_index; i < (min_index + K - 1); i++) {
-		sum += vec[i];
-	}
-	double avg = static_cast<double>(sum) / K;
-
-	double variance = 0;
-	for (int i = min_index; i < min_index + K; i++) {
-		variance += (vec[i] - avg) * (vec[i] - avg);
-	}
-	variance /= K;
-
-	std::cout.precision(10);
-	std::cout << std::sqrt(variance);
-
-	return 0;
+	std::cout << vec.size() << std::endl;
+	for (auto& name : vec)
+		std::cout << name << std::endl;
 }
