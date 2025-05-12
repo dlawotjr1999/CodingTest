@@ -2,10 +2,16 @@
 #include <vector>
 #include <algorithm>
 
+// 길이가 N인 수열이 주어졌을 때, 다음 쿼리를 구현하는 문제
+// 1 i v : A_i를 v로 변경
+// 2 : 수열에서 크기가 가장 작은 값의 인덱스를 출력하며, 그러한 값이 여러 개인 경우에는 인덱스가 작은 것을 출력
+
+// 세그먼트 트리 : https://m.blog.naver.com/ndb796/221282210534
+
 std::vector<int> vec;
 std::vector<int> tree;
 
-// Segment Tree
+// Segment Tree Initialization
 int InitTree(int begin, int end, int node) {
     if (begin == end)
         return tree[node] = begin;
@@ -22,6 +28,7 @@ int InitTree(int begin, int end, int node) {
         return tree[node] = std::min(left_min_index, right_min_index);
 }
 
+// Function to update the element 
 int UpdateTree(int begin, int end, int node, int idx) {
     if (idx < begin || idx > end)
         return tree[node];

@@ -2,6 +2,9 @@
 #include <unordered_map>
 #include <algorithm>
 
+// 주어진 옷들 중에서 서로 다른 종류의 옷들로 만들 수 있는 조합의 수를 구하는 문제
+// 단 아무것도 걸치지 않는 경우는 제외
+
 int main() {
 	int N;
 	std::cin >> N;
