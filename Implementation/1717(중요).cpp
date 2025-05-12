@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-// 기본적인 Union-Find 구현 문제
+// 기본적인 Union-Find 구현 문제 
 
 int n, m;
 

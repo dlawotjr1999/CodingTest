@@ -1,6 +1,6 @@
 #include <iostream>
 
-// 유클리드 호제법 구현 문제
+// 유클리드 호제법 구현 문제 
 
 int gcd(int a, int b) {
     if (b == 0) return a;
