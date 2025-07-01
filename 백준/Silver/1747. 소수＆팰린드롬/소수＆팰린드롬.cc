@@ -2,7 +2,7 @@
 #include <string>
 
 constexpr int MAX = 2000000;
-int arr[MAX + 1];
+bool arr[MAX + 1] = { true, };
 
 int main() {
 	int N;
@@ -13,15 +13,16 @@ int main() {
 	}
 
 	for (int i = 2; i * i <= MAX; ++i) {
-		if (arr[i] == 0)
-			continue;	
+		if (arr[i] == false)
+			continue;
+		
 		for (int j = i * i; j <= MAX; j += i) {
-			arr[j] = 0;
+			arr[j] = false;
 		}
 	}
 
 	for (int i = N; i <= MAX; ++i) {
-		if (arr[i] == 0)
+		if (arr[i] == false)
 			continue;
 
 		std::string num = std::to_string(i);
