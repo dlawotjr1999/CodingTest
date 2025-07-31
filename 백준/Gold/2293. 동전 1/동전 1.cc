@@ -16,7 +16,11 @@ int main() {
 	}
 
 	DP[0] = 1;
+
+	// 동전의 수만큼 반복(모든 동전을 탐색)
 	for (int i = 0; i < n; ++i) {
+		// 현재 동전을 활용하여 만들 수 있는 금액들을 확인
+		// coin[i] 미만의 금액은 coin[i]로 만들 수 없으므로 coin[i]부터 탐색
 		for (int j = coin[i]; j <= k; ++j) {
 			DP[j] = DP[j] + DP[j - coin[i]];
 		}
