@@ -11,6 +11,7 @@ int main() {
 	}
 
 	std::unordered_set<int> temp;
+    temp.reserve(N * N);
 	for (int i = 0; i < N; ++i) {
 		for (int j = 0; j < N; ++j) {
 			temp.insert(U[i] + U[j]);
