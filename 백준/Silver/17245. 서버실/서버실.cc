@@ -5,10 +5,9 @@ long long total, half;
 std::vector<std::vector<int>> field;
 
 long long BinarySearch(int low, int high) {
-	int answer = 1e8;
 	int l = low, r = high;
 
-	while (l <= r) {
+	while (l < r) {
 		long long cnt = 0;
 		int mid = (l + r) / 2;
 
@@ -20,15 +19,14 @@ long long BinarySearch(int low, int high) {
 		}
 
 		if (cnt >= half) {
-			answer = std::min(mid, answer);
-			r = mid - 1;
+			r = mid;
 		}
 		else {
 			l = mid + 1;
 		}
 	}
 
-	return answer;
+	return l;
 }
 
 int main() {
