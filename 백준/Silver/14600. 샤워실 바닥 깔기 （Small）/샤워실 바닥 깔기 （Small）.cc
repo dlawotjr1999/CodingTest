@@ -15,7 +15,7 @@ void DFS(int num, int cnt) {
 	if (isCompleted)
 		return;
 
-	if (cnt == (N * N) - 1) {
+	if (cnt == ((N * N) - 1) / 3) {
 		for (int i = (N - 1); i >= 0; --i) {
 			for (int j = 0; j < N; ++j) {
 				std::cout << field[i][j] << ' ';
@@ -50,17 +50,15 @@ void DFS(int num, int cnt) {
 							int dy = i + dir_y[d][e];
 							
 							field[dy][dx] = num;
-							cnt++;
 						}
 
-						DFS(num + 1, cnt);
+						DFS(num + 1, cnt + 1);
 
 						for (int e = 0; e < 3; ++e) {
 							int dx = j + dir_x[d][e];
 							int dy = i + dir_y[d][e];
 
 							field[dy][dx] = 0;
-							cnt--;
 						}
 					}
 				}
