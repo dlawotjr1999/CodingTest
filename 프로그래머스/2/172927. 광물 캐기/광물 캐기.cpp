@@ -3,6 +3,7 @@
 
 using namespace std;
 
+const int cost[3][3] = { {1,1,1}, {5,1,1}, {25,5,1} };
 int answer = 1e8;
 
 // 0 : 0 1 2 3 4
@@ -16,30 +17,16 @@ void DFS(vector<int>& vec, int num, vector<int>& picks, const vector<string>& mi
             int cur = vec[i];
             
             for(int j = i * 5; j < i * 5 + 5 && j < (int)minerals.size(); ++j) {
-                if(vec[i] == 0) {
-                    if(minerals[j] == "diamond") 
-                        temp++;
-                    else if(minerals[j] == "iron")
-                        temp++;
-                    else
-                        temp++;
-                }
-                else if(vec[i] == 1) {
-                    if(minerals[j] == "diamond") 
-                        temp += 5;
-                    else if(minerals[j] == "iron")
-                        temp++;
-                    else
-                        temp++;                    
-                }
-                else {
-                    if(minerals[j] == "diamond") 
-                        temp += 25;
-                    else if(minerals[j] == "iron")
-                        temp += 5;
-                    else
-                        temp++;              
-                }
+                int mineral = 0;
+                
+                if(minerals[j] == "diamond")
+                    mineral = 0;
+                else if(minerals[j] == "iron")
+                    mineral = 1;
+                else
+                    mineral = 2;
+                
+                temp += cost[cur][mineral];
             }
         }
         
