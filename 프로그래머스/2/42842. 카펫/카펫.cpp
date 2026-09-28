@@ -19,6 +19,7 @@ vector<int> solution(int brown, int yellow) {
             if(inner == yellow) {
                 a = max(cur_x, cur_y);
                 b = min(cur_x, cur_y);
+                break;
             }
 
         }
