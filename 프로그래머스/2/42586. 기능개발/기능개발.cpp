@@ -1,36 +1,35 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <queue>
+#include <iostream>
 
 using namespace std;
 
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> answer;
-    queue<int> q;
+    queue<pair<int, int>> q;
     
-    for(int p : progresses) {
-        q.emplace(100 - p);
+    for(int i = 0; i < (int)progresses.size(); ++i) {
+        q.emplace(progresses[i], speeds[i]);
     }
     
-    int idx = 0;
     while(!q.empty()) {
-        int cnt = 0;
-        
-        while(!q.empty() && q.front() <= 0) {
-            cnt++;   
-            idx++;
+        for(int i = 0; i < (int)q.size(); ++i) {
+            int progress = q.front().first;
+            int speed = q.front().second;
+            
+            q.emplace(progress + speed, speed);
             q.pop();
-        }
-        if(cnt > 0)
-            answer.push_back(cnt);
-        
-        // 한 타임에 speeds_i만큼 줄이기
-        if(!q.empty()) {
-            for(int i = idx; i < (int)speeds.size(); ++i) {
-                q.push(q.front() - speeds[i]);
+        } 
+
+        if(q.front().first >= 100) {
+            int deploy = 0;
+            
+            while(!q.empty() && q.front().first >= 100) {
+                deploy++;
                 q.pop();
             }
+            answer.push_back(deploy);
         }
     }
     
